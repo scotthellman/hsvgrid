@@ -2,19 +2,18 @@ var ctx;
 var grid;
 var width;
 var height; 
-var spacing = 10;
+var spacing;
 
 var dirty = [];
 
-function initGrid() {
-    canvas = document.getElementById("gradient");
-    canvas.width = 400//document.width - 100;
-    canvas.height = 400//document.height - 100; 
+function initGrid(canvas,square_width) {
+	spacing = square_width;
+    var canvas = document.getElementById("gradient");
+    canvas.width = 800;
+    canvas.height = 800;
     width = canvas.width/spacing;
     height = canvas.height/spacing;
-    user_height = height - 1;
     ctx = canvas.getContext("2d");
-  
     grid = new Array();
     for(var i = 0; i < width; i++){
   	    grid[i] = new Array();
@@ -25,16 +24,16 @@ function initGrid() {
     }
 }
 
-function alterGrid(hue,sat,val,i,j){
-	dirty.push([i,j]);
-	grid[i][j] = [hue,sat,val];
+function alterGrid(hue,sat,val,x,y){
+	dirty.push([x,y]);
+	grid[x][y] = [hue,sat,val];
 }
 
-function getGridValue(i,j){
-	return grid[i][j];
+function getGridValue(x,y){
+	return grid[x][y];
 }
 
-function drawGrid() {
+function drawGridToCanvas() {
 	for(var i = 0; i < dirty.length; i++){
 		var x = dirty[i][0];
 		var y = dirty[i][1]
