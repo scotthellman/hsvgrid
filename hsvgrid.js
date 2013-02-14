@@ -1,13 +1,14 @@
-var ctx;
-var grid;
-var width;
-var height; 
-var spacing;
-
-var dirty = [];
 
 HSVGrid = function(){
+	var ctx;
+	var grid;
+	var width;
+	var height; 
+	var spacing;
+
+	var dirty = [];
 	function initGrid(canvas,square_count) {
+		spacing = square_count
 	    width = canvas.width/square_count;
 	    height = canvas.height/square_count;
 	    ctx = canvas.getContext("2d");
