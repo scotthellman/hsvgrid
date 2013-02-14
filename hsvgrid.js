@@ -5,17 +5,17 @@ HSVGrid = function(){
 	var width;
 	var height; 
 	var spacing;
-
 	var dirty = [];
+
 	function initGrid(canvas,square_count) {
-		spacing = square_count
+		spacing = canvas.width/square_count
 	    width = canvas.width/square_count;
 	    height = canvas.height/square_count;
 	    ctx = canvas.getContext("2d");
 	    grid = new Array();
-	    for(var i = 0; i < width; i++){
+	    for(var i = 0; i < square_count; i++){
 	  	    grid[i] = new Array();
-		    for(var j = 0; j < height; j++){
+		    for(var j = 0; j < square_count; j++){
 		  	    grid[i][j] = [0,0,0];
 		  	    dirty.push([i,j]);
 		    }
