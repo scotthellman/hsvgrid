@@ -7,13 +7,9 @@ var spacing;
 var dirty = [];
 
 HSVGrid = function(){
-	function initGrid(canvas,square_width) {
-		spacing = square_width;
-	    var canvas = document.getElementById("gradient");
-	    canvas.width = 800;
-	    canvas.height = 800;
-	    width = canvas.width/spacing;
-	    height = canvas.height/spacing;
+	function initGrid(canvas,square_count) {
+	    width = canvas.width/square_count;
+	    height = canvas.height/square_count;
 	    ctx = canvas.getContext("2d");
 	    grid = new Array();
 	    for(var i = 0; i < width; i++){
