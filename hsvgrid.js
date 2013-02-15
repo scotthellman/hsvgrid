@@ -33,13 +33,12 @@ HSVGrid = function(){
 
 	function drawGridToCanvas() {
 	    var ctx = true_canvas.getContext("2d");
-	    ctx.fillStyle = "#AAA";
-	    ctx.fillRect(0,0,canvas.width,canvas.height);
+	    // ctx.fillStyle = "#000";
+	    // ctx.fillRect(0,0,canvas.width,canvas.height);
 		for(var i = 0; i < dirty.length; i++){
 			var x = dirty[i][0];
 			var y = dirty[i][1]
 			var color_info = grid[x][y];
-			console.log(color_info,x*spacing,y*spacing,spacing);
 			ctx.fillStyle = getRGBfromHSV(color_info[0],color_info[1],color_info[2]);
 			ctx.fillRect(x*spacing,y*spacing,spacing,spacing);
 		}
