@@ -23,6 +23,9 @@ HSVGrid = function(){
 	}
 
 	function alterGrid(hue,sat,val,x,y){
+		if(grid[x][y][0] == hue && grid[x][y][1] == sat && grid[x][y][2] == val){
+			return;
+		}
 		dirty.push([x,y]);
 		grid[x][y] = [hue,sat,val];
 	}
